@@ -1,0 +1,100 @@
+[
+  {
+    "EndPoint": null,
+    "Protocol": null,
+    "Service": ["System"],
+    "OperationType": null,
+    "Group": null,
+    "Mandatory": false,
+    "System": false,
+    "Name": "AzStackHci_Connectivity_Collect_Proxy_Diagnostics_WinHttp",
+    "Title": "WinHttp Proxy Settings",
+    "Severity": "Informational",
+    "Description": "Collects proxy configuration for WinHttp",
+    "Tags": null,
+    "Status": "Succeeded",
+    "Remediation": "https://docs.microsoft.com/en-us/azure-stack/hci/concepts/firewall-requirements?tabs=allow-table#set-up-a-proxy-server",
+    "TargetResourceID": "767c0b95-xxxx-xxxx-xxxx-76dff50f2c75",
+    "TargetResourceName": "WinHttp_Proxy_ASHADE001",
+    "TargetResourceType": "Proxy_Setting",
+    "Timestamp": "/Date(1686045411279)/",
+    "AdditionalData": [
+      {
+        "detail": [
+          "",
+          "Current WinHTTP proxy settings:",
+          "",
+          "    Proxy Server(s) :  10.78.162.228:8080",
+          "    Bypass List     :  localhost;127.0.0.1;*.svc;cert-manager-webhook.cert-manager.svc;kubernetes.default.svc;46.108.14.*;100.64.2.*;169.254.*;*.internal.vodafone.com;ashade*",
+          ""
+        ],
+        "status": "Succeeded",
+        "resource": " Proxy Server(s) :10.78.162.228:8080 Bypass List :localhost;127.0.0.1;*.svc;cert-manager-webhook.cert-manager.svc;kubernetes.default.svc;46.108.14.*;100.64.2.*;169.254.*;*.internal.vodafone.com;ashade* ",
+        "source": "ASHADE001"
+      }
+    ],
+    "HealthCheckSource": "Manual\\Connectivity\\b23874bb"
+  },
+  {
+    "EndPoint": null,
+    "Protocol": null,
+    "Service": ["System"],
+    "OperationType": null,
+    "Group": null,
+    "Mandatory": false,
+    "System": false,
+    "Name": "AzStackHci_Connectivity_Collect_Proxy_Diagnostics_Environment",
+    "Title": "Environment Proxy Settings",
+    "Severity": "Informational",
+    "Description": "Collects proxy configuration from environment variables",
+    "Tags": null,
+    "Status": "Succeeded",
+    "Remediation": "https://docs.microsoft.com/en-us/azure-stack/aks-hci/set-proxy-settings",
+    "TargetResourceID": "cb019485-xxxx-xxxx-xxxx-fde6e5f35dfb",
+    "TargetResourceName": "Environment_Proxy_ASHADE001",
+    "TargetResourceType": "Proxy_Setting",
+    "Timestamp": "/Date(1686045411310)/",
+    "AdditionalData": [
+      {
+        "Status": "Succeeded",
+        "Resource": "http://10.78.162.228:8080",
+        "Source": "ASHADE001_HTTPS_PROXY"
+      },
+      {
+        "Status": "Succeeded",
+        "Resource": "http://10.78.162.228:8080",
+        "Source": "ASHADE001_HTTP_PROXY"
+      }
+    ],
+    "HealthCheckSource": "Manual\\Connectivity\\b23874bb"
+  },
+  {
+    "EndPoint": null,
+    "Protocol": null,
+    "Service": ["System"],
+    "OperationType": null,
+    "Group": null,
+    "Mandatory": false,
+    "System": false,
+    "Name": "AzStackHci_Connectivity_Collect_Proxy_Diagnostics_IEProxy",
+    "Title": "IE Proxy Settings",
+    "Severity": "Informational",
+    "Description": "Collects Proxy configuration from IE",
+    "Tags": null,
+    "Status": "Succeeded",
+    "Remediation": "https://docs.microsoft.com/en-us/azure-stack/hci/concepts/firewall-requirements?tabs=allow-table#set-up-a-proxy-server",
+    "TargetResourceID": "fe961ba6-xxxx-xxxx-xxxx-2dd7322658d5",
+    "TargetResourceName": "IE_Proxy_ASHADE001",
+    "TargetResourceType": "Proxy_Setting",
+    "Timestamp": "/Date(1686045411326)/",
+    "AdditionalData": [
+      {
+        "Detail": { "ProxyServer": null, "ProxyEnable": 0 },
+        "Status": "Succeeded",
+        "Resource": " (Enabled:0)",
+        "Source": "ASHADE001"
+      }
+    ],
+    "HealthCheckSource": "Manual\\Connectivity\\b23874bb"
+  }
+]

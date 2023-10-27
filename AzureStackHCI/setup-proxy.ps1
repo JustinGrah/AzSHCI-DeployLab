@@ -1,11 +1,14 @@
 $proxyAddress = 'http://<YOUR_PROXYURL>'
 $proxyPort = '<PORT>'
 $proxyBypassList = @('*.<your>.<domain>')
+$proxyPacUrl = "your-pac-url"
+$usePACUrl = $true #Speficy if you are using a PAC file.
+
 
 # ===================================
 # !!! DO NOT EDIT BELOW THIS LINE !!!
 # ===================================
-# setup helper vars and our default exclusion list
+# setup helper vars and our default exclusion list. Do not modify default exclusion.
 $pUri = $proxyAddress + ':' + $proxyPort
 $pBypass = @('localhost','127.0.0.1','<local>','*.svc','10.*','172.16.*','192.168.*')
 $pBypass += $proxyBypassList
@@ -31,5 +34,12 @@ netsh winhttp import proxy source=ie
 [Environment]::SetEnvironmentVariable("NO_PROXY", ($pBypass -join ','), "Machine")  # required for arc connected machines agent
 $env:ProxyServer = $pUri                    # required to automatically fill in the set-wininetproxy
 $env:ProxyBypass = ($pBypass -join ',')     # required to automatically fill in the set-wininetproxy
-Set-WinInetProxy -ProxySettingsPerUser 0    # will set global proxy settings based on our env. variables
+
+if($usePACUrl) {
+    # will set global proxy settings based on our env. variables and use the PAC URL
+    Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer $env:ProxyServer -ProxyBypass $env:ProxyBypass -PACUrl $proxyPacUrl -AutoDetect 1    
+} else {
+    # will set global proxy settings based on our env. variables
+    Set-WinInetProxy -ProxySettingsPerUser 0
+}
 netsh winhttp import proxy source=ie        # will pull the information from the proxy we just set with the wininet
